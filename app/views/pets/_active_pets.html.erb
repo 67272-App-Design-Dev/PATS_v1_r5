@@ -1,0 +1,32 @@
+<h4>Active Pets at PATS</h4>
+
+<table class="striped highlight">
+  <thead>
+    <th>Pet</th>
+    <th>Type</th>
+    <th>Owner</th>
+    <th class="align_center">Options</th>
+  </thead>
+  <% for pet in @active_pets %>
+    <tr class="<%= cycle('dg_list_line_odd', 'dg_list_line_even') %>">
+      <td><%= link_to pet.name, pet_path(pet) %></td>
+      <td><%= pet.animal.name %></td>
+      <td><%= link_to pet.owner.name, owner_path(pet.owner) %></td>
+
+    <td class="align_center">
+      <%= link_to edit_pet_path(pet) do %>
+            <i class="material-icons">edit</i>
+        <% end %>
+        &nbsp;&nbsp;&nbsp;&nbsp; 
+        <%= link_to(pet_path(pet), method: :delete, data: { confirm: 'Are you sure you wish to delete this information?' }) do %>
+            <i class="material-icons">delete</i>
+        <% end %>
+    </td>
+    </tr>
+  <% end %>
+</table>
+<p class="supertiny"></p>
+<br />
+<%= will_paginate @active_pets, previous_label: "Previous&nbsp;", next_label: "&nbsp;Next" %>
+<p>&nbsp;</p>
+<%= render :partial => "partials/add_new_object", locals: {model_name: 'pet'} %>

@@ -1,0 +1,30 @@
+<h4>Procedures at PATS</h4>
+
+<table class="striped highlight">
+  <thead>
+    <th>Name</th>
+    <th class="align_center">Minutes</th>
+    <th class="align_center">Current Cost</th>
+    <th class="align_center">Options</th>
+  </thead>
+  <% for procedure in @procedures %>
+    <tr>
+      <td><%= link_to procedure.name, procedure_path(procedure) %></td>
+      <td class="align_center"><%= procedure.length_of_time %></td>
+      <td class="align_center"><%= procedure.current_cost.nil? ? 'N/A' : number_to_currency(procedure.current_cost/100) %></td>
+      <td class="align_center">
+      <%= link_to edit_procedure_path(procedure) do %>
+            <i class="material-icons">edit</i>
+        <% end %>
+        &nbsp;&nbsp;&nbsp;&nbsp; 
+        <%= link_to(procedure_path(procedure), method: :delete, data: { confirm: 'Are you sure you wish to delete this information?' }) do %>
+            <i class="material-icons">delete</i>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+<br />
+<%= will_paginate @procedures, previous_label: "Previous&nbsp;", next_label: "&nbsp;Next" %>
+<p>&nbsp;</p>
+<%= render :partial => "partials/add_new_object", locals: {model_name: 'procedure'} %>

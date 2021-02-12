@@ -1,0 +1,36 @@
+<% if @active_owners.empty? %>
+  <h4>There are no owners in the system at this time.</h4>
+<% else %>
+  <h4>Active Owners in PATS</h4>
+  <table class="striped highlight">
+    <thead>
+      <th>Owner</th>
+      <th>Phone</th>
+      <th>Email</th>
+      <th class="align_center">Options</th>
+    </thead>
+    <% for owner in @active_owners %>
+      <tr>
+        <td><%= link_to "#{owner.last_name}, #{owner.first_name}", owner_path(owner) %></td>
+        <td><%= number_to_phone owner.phone %></td>
+        <td><%= mail_to owner.email, owner.email, encode: "javascript" %></td>
+        <td class="align_center">
+          <%= link_to edit_owner_path(owner) do %>
+              <i class="material-icons">edit</i>
+          <% end %>
+          &nbsp;&nbsp;&nbsp;&nbsp; 
+          <%= link_to(owner_path(owner), method: :delete, data: { confirm: 'Are you sure you wish to delete this information?' }) do %>
+              <i class="material-icons">delete</i>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+  <br />
+  <%= will_paginate @active_owners, previous_label: "Previous&nbsp;", next_label: "&nbsp;Next" %>
+<% end %>
+<p>&nbsp;</p>
+
+<p><strong>
+<%= link_to "Add a New Owner", new_owner_path, class: 'waves-effect waves-light btn' %> 
+</strong></p>

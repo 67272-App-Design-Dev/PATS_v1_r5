@@ -1,0 +1,17 @@
+<div class="card">
+  <div class="card-content">
+    <span class="card-title">Recent Visits</span>
+    <table class="striped highlight">
+      <thead>
+        <th>Visit</th>
+        <th>Weight</th>
+      </thead>
+        <% for visit in @recent_visits %>
+          <tr>
+            <td><%= link_to visit.date.strftime("%m/%d/%y"), visit_path(visit) %></td>
+          <td>&nbsp;<%= visit.weight %> lbs</td>
+          </tr>
+        <% end %>
+    </table>
+  </div>
+</div>

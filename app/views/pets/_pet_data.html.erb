@@ -1,0 +1,20 @@
+<div class="card">
+  <div class="card-content">
+    <h5>Pet Information for <%= @pet.name %></h5><br />
+
+    <b>Owner:&nbsp;&nbsp;</b>
+      <%= link_to @pet.owner.name, owner_path(@pet.owner) %><br /><br />
+
+    <b>Type:&nbsp;&nbsp;</b>
+      <%= @pet.animal.name %><br /><br />
+
+    <b>Gender:&nbsp;&nbsp;</b>
+      <%= @pet.gender %><br /><br />
+
+    <b>Date of Birth:&nbsp;&nbsp;</b>
+      <%= @pet.date_of_birth.strftime("%B %d, %Y") %><br /><br />
+
+    <b>Active with PATS?&nbsp;&nbsp;</b>
+      <%= @pet.active ? "Yes" : "No" %><br><br><br>
+  </div>
+</div>

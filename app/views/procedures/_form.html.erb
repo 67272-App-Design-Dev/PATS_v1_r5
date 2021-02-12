@@ -1,0 +1,16 @@
+<%= simple_form_for(@procedure) do |f| %>
+  <%= f.error_notification %>
+  <div class="row">
+    <div class="form-inputs">
+      <%= f.input :name, label_html: { class: 'active' } %>
+      <%= f.input :description, label_html: { class: 'active' } %>
+      <%= f.input :length_of_time, label_html: { class: 'active' } %>
+      <%= f.input :active %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-actions col s8">
+      <%= f.button :submit %>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,15 @@
+<div class="card">
+  <div class="card-content">
+    <h5>Information for <%= @procedure.name %></h5><br />
+
+    <b>Description:&nbsp;&nbsp;</b>
+      <%= @procedure.description %><br /><br />
+
+    <b>Time to perform:&nbsp;&nbsp;</b>
+      <%= @procedure.length_of_time %> minutes<br /><br />
+
+    <b>Currently offered?&nbsp;&nbsp;</b>
+      <%= @procedure.active ? "Yes" : "No" %><br><br><br>
+  </div>
+</div>
+

@@ -1,0 +1,19 @@
+
+<%= simple_form_for(@pet) do |f| %>
+  <%= f.error_notification %>
+  <div class="row">
+    <div class="form-inputs">
+      <%= f.input :name, label_html: { class: 'active' } %>
+      <%= f.input :animal_id, collection: Animal.alphabetical.active.to_a, include_blank: true %>
+      <%= f.input :owner_id, collection: Owner.alphabetical.active.to_a, include_blank: true %>
+      <%= f.input :date_of_birth, label_html: { class: 'active' } %>
+      <%= f.input :female, as: :radio_buttons %>
+      <%= f.input :active %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-actions col s8">
+      <%= f.button :submit %>
+    </div>
+  </div>
+<% end %>

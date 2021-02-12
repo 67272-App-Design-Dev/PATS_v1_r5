@@ -1,0 +1,28 @@
+<% unless @prices.empty? %>
+  <div class="card">
+    <div class="card-content">
+      <span class="card-title">Cost History</span>
+      <table class="striped highlight">
+      <thead>
+        <th>Date</th>
+        <th class="align_right">Cost Per Unit</th>
+      </thead>
+        <% for price in @prices %>
+          <tr>
+            <td><%= price.start_date.strftime("%b %d, %Y") %></td>
+            <td class="align_right"><%= number_to_currency(price.cost_per_unit/100.0) %></td>
+          </tr>
+        <% end %>
+    </table>
+    </div>
+    <div class="card-action">
+      <%= link_to "Add a new cost", new_medicine_cost_path(medicine_id: @medicine.id) %>
+    </div>
+  </div>
+<% else %>
+  <div class="card grey lighten-3">
+    <div class="card-action">
+      <%= link_to "Add a new cost", new_medicine_cost_path(medicine_id: @medicine.id) %>
+    </div>
+  </div>
+<% end %>

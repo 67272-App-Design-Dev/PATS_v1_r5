@@ -1,0 +1,27 @@
+
+<div class="row">
+  <div class="col s8">
+    <h4>New Treatment:</h4>
+    <%= simple_form_for(@treatment) do |f| %>
+      <%= f.error_notification %>
+      <div class="row">
+        <div class="form-inputs">
+          <%= f.input :procedure_id, collection: Procedure.alphabetical.to_a, include_blank: true %>
+          <%= f.input :successful %>
+          <%= f.input :discount, label_html: { class: 'active' } %>
+          <%= f.input :visit_id, as: :hidden, input_html: { value: @visit.id } %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-actions col s8">
+          <%= f.button :submit %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="col s4">
+    <h4>For Visit:</h4>
+    <h5>Date: <%= @visit.date.strftime("%B %d, %Y") %></h5>
+    <h5>Pet: <%= @pet.name %> (<%= @pet.animal.name %>)</h5>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<% unless @treatments.empty? %>
+  <div class="card yellow lighten-4">
+    <div class="card-content">
+      <span class="card-title">Treatments given</span>
+      <ul>
+        <% for treatment in @treatments %>
+          <li>
+            <%= link_to(treatment_path(treatment), class: 'remove', method: :delete) do %>
+                x&nbsp;&nbsp;
+              <% end %>
+            <%= link_to treatment.procedure.name, procedure_path(treatment.procedure) %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="card-action">
+      <%= link_to "Add a new treatment", new_treatment_path(visit_id: @visit.id) %>
+    </div>
+  </div>
+<% else %>
+  <div class="card grey lighten-3">
+    <div class="card-action">
+      <%= link_to "Add a new treatment", new_treatment_path(visit_id: @visit.id) %>
+    </div>
+  </div>
+<% end %>

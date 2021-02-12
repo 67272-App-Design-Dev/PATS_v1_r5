@@ -1,0 +1,18 @@
+<div class="card">
+  <div class="card-content">
+    <h5><%= @owner.first_name %> <%= @owner.last_name %></h5><br />
+
+    <b>Home Address:&nbsp;&nbsp;</b><br>
+      <%= @owner.street %><br>
+      <%= @owner.city %>, <%= @owner.state %> <%= @owner.zip %><br /><br />
+
+    <b>Phone:&nbsp;&nbsp;</b><br>
+      <%= number_to_phone(@owner.phone) %><br /><br />
+
+    <b>Email:&nbsp;&nbsp;</b><br>
+      <%= mail_to @owner.email, @owner.email, encode: "javascript" %><br /><br />
+
+    <b>Active with PATS?&nbsp;&nbsp;</b>
+      <%= @owner.active ? "Yes" : "No" %>
+  </div>
+</div>

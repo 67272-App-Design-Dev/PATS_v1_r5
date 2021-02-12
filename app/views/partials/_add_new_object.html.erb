@@ -1,0 +1,4 @@
+<!-- Add a button for new instances of object -->
+<%= link_to(eval("new_#{model_name}_path"), class: "waves-effect waves-light btn") do %>
+  <strong>Add a New <%= model_name.capitalize %></strong>
+<% end %>

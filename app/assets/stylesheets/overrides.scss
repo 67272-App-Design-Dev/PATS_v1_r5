@@ -1,0 +1,241 @@
+html {
+  // Preloaded with four fonts; uncomment the one you prefer
+  // font-family: 'Nunito', sans-serif;
+  // font-family: 'Bitter', serif;
+  font-family: 'Josefin Sans', sans-serif;
+  // font-family: 'Varela Round', sans-serif;
+}
+
+/********** TOPBAR & NAV ********/
+#topbar {
+  background-color: black;
+  padding-top: 5px;
+  margin-bottom: 0px;
+  color: #ffd600;
+}
+
+#nav {
+  background-color: black;
+  height: 50px;
+}
+
+#nav ul a {
+  color: #ffd600;
+  font-size: 1.2rem;
+}
+
+/********** FLASH MSGS ********/
+#flash_notice, #flash_error, #flash_alert {
+  padding: 5px 8px;
+  margin: 10px;
+}
+
+#flash_notice {
+  background-color: #CFC;
+  border: solid 1px #6C6;
+  color: #008000;
+}
+
+#flash_error, #flash_alert {
+  background-color: #FCC;
+  border: solid 1px #C66;
+  color: #800000;
+}
+
+/********** FOOTER ********/
+
+#footer {
+  background-color: black;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 0px;
+  color: yellow;
+  line-height: 2rem;
+  position: relative;
+}
+
+#footer a {
+  color: #ffd600;
+}
+
+/********** TABLES ********/
+table.striped > tbody > tr:nth-child(odd) {
+  background-color: #fff;
+}
+
+table.striped > tbody > tr:nth-child(even) {
+  background-color: #fffde7;
+}
+
+table.highlight > tbody > tr:hover {
+  background-color: #fff59d;
+}
+
+td.align_right {
+  text-align: right;
+}
+
+td.align_center {
+  text-align: center;
+}
+
+th.align_right {
+  text-align: right;
+}
+
+th.align_center {
+  text-align: center;
+}
+
+/********** BUTTONS ********/
+.btn {
+  background-color: #ffd600;
+  color: #000;
+}
+
+.btn:hover {
+  background-color: #ffff00;
+  color: #000;
+}
+
+.btn-secondary {
+  background-color: #eceff1;
+  color: #000;
+}
+
+.btn-secondary:hover {
+  background-color: #cfd8dc;
+  color: #000;
+}
+
+.btn-alert {
+  background-color: #c62828;
+  color: #fff;
+}
+.btn-alert:hover {
+  background-color: #e53935;
+  color: #fff;
+}
+
+/********** FORMS ********/
+.switch label input[type=checkbox]:checked + .lever {
+  background-color: #ffea00;
+}
+
+.switch label input[type=checkbox]:checked + .lever::after {
+  background-color: #ffd600;
+}
+
+.picker__date-display {
+  background-color: #ffd600;
+  color: #000;
+}
+
+.picker__year-display {
+  color: #000;
+}
+
+input[type=text].search {
+  border-bottom: none;
+  margin-left: 10px;
+}
+
+.picker__day--selected, .picker__day--selected:hover, .picker--focused .picker__day--selected {
+  border-radius: 50%;
+  transform: scale(0.9);
+  background-color: #ffd600;
+  color: #000;
+}
+
+.check_boxes.optional.filled-in {
+  background-color: #ffd600;
+}
+
+[type="checkbox"].filled-in:checked+label:after {
+  border: 2px solid #ffd600;
+  background-color: #ffd600;
+}
+
+[type="radio"]:checked + label:after, [type="radio"].with-gap:checked + label:after {
+  border: 2px solid #ffd600;
+  background-color: #ffd600;
+}
+
+
+/********** MEDIA ********/
+.img_left {
+  float: left;
+  padding-right: 10px;
+}
+
+.img_right {
+  float: right;
+  padding-left: 10px;
+}
+
+.carousel {
+  height: 250px;
+}
+
+/********** CARDS ********/
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating) {
+  color: #ffab00;
+}
+
+.remove {
+  color: #b71c1c;
+}
+
+/********** FLASH MSGs ********/
+.alert-box {
+  border-style: solid;
+  border-width: 1px;
+  display: block;
+  font-size: 0.8125rem;
+  font-weight: normal;
+  margin-bottom: 1.25rem;
+  padding: 0.875rem 1.5rem 0.875rem 0.875rem;
+  position: relative;
+  transition: opacity 300ms ease-out;
+  background-color: #008CBA;
+  border-color: #0078a0;
+  color: #FFFFFF; } 
+  .alert-box .close {
+    right: 0.25rem;
+    background: inherit;
+    color: #333333;
+    font-size: 1.375rem;
+    line-height: .9;
+    margin-top: -0.6875rem;
+    opacity: 0.3;
+    padding: 0 6px 4px;
+    position: absolute;
+    top: 50%; }
+    .alert-box .close:hover, .alert-box .close:focus {
+      opacity: 0.5; }
+  .alert-box.radius {
+    border-radius: 3px; }
+  .alert-box.round {
+    border-radius: 1000px; }
+  .alert-box.success {
+    background-color: #e8f5e9;
+    border-color: #a5d6a7;
+    color: #1b5e20; }
+  .alert-box.alert {
+    background-color: #f04124;
+    border-color: #de2d0f;
+    color: #FFFFFF; }
+  .alert-box.secondary {
+    background-color: #e7e7e7;
+    border-color: #c7c7c7;
+    color: #4f4f4f; }
+  .alert-box.warning {
+    background-color: #fff3e0;
+    border-color: #ffcc80;
+    color: #ef6c00; }
+  .alert-box.info {
+    background-color: #a0d3e8;
+    border-color: #74bfdd;
+    color: #4f4f4f; }
+  .alert-box.alert-close {
+    opacity: 0; }

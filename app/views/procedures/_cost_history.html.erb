@@ -1,0 +1,28 @@
+<% unless @prices.empty? %>
+  <div class="card">
+    <div class="card-content">
+      <span class="card-title">Cost History</span>
+      <table class="striped highlight">
+      <thead>
+        <th>Date</th>
+        <th class="align_right">Cost</th>
+      </thead>
+        <% for price in @prices %>
+          <tr>
+            <td><%= price.start_date.strftime("%b %d, %Y") %></td>
+          <td class="align_right"><%= number_to_currency(price.cost/100) %></td>
+          </tr>
+        <% end %>
+    </table>
+    </div>
+    <div class="card-action">
+      <%= link_to "Add a new cost", new_procedure_cost_path(procedure_id: @procedure.id) %>
+    </div>
+  </div>
+<% else %>
+  <div class="card grey lighten-3">
+    <div class="card-action">
+      <%= link_to "Add a new cost", new_procedure_cost_path(procedure_id: @procedure.id) %>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,20 @@
+<div class="card">
+  <div class="card-content">
+    <h5>Information for <%= @medicine.name %></h5><br />
+
+    <b>Description:&nbsp;&nbsp;</b>
+      <%= @medicine.description %><br /><br />
+
+    <b>Administer method:&nbsp;&nbsp;</b>
+      <%= @medicine.admin_method %><br /><br />
+
+    <b>Amount in stock:&nbsp;&nbsp;</b>
+      <%= number_with_delimiter(@medicine.stock_amount) %> <%= @medicine.unit %><br /><br />
+
+    <b>Vaccine?&nbsp;&nbsp;</b>
+      <%= @medicine.vaccine ? "Yes" : "No" %><br /><br />
+
+    <b>Currently offered?&nbsp;&nbsp;</b>
+      <%= @medicine.active ? "Yes" : "No" %><br><br><br>
+  </div>
+</div>

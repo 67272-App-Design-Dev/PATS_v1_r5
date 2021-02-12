@@ -1,0 +1,30 @@
+<h4>Medicines at PATS</h4>
+
+<table class="striped highlight">
+  <thead>
+    <th>Name</th>
+    <th>Stock Amount</th>
+    <th>Current Unit Cost</th>
+    <th class="align_center">Options</th>
+  </thead>
+  <% for medicine in @medicines %>
+    <tr>
+      <td><%= link_to medicine.name, medicine_path(medicine) %></td>
+      <td><%= number_with_delimiter(medicine.stock_amount) %> <%= medicine.unit %></td>
+      <td class="align_center"><%= medicine.current_cost_per_unit.nil? ? 'N/A' : number_to_currency(medicine.current_cost_per_unit/100.0) %></td>
+      <td class="align_center">
+      <%= link_to edit_medicine_path(medicine) do %>
+            <i class="material-icons">edit</i>
+        <% end %>
+        &nbsp;&nbsp;&nbsp;&nbsp; 
+        <%= link_to(medicine_path(medicine), method: :delete, data: { confirm: 'Are you sure you wish to delete this information?' }) do %>
+            <i class="material-icons">delete</i>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+<br />
+<%= will_paginate @medicines, previous_label: "Previous&nbsp;", next_label: "&nbsp;Next" %>
+<p>&nbsp;</p>
+<%= render :partial => "partials/add_new_object", locals: {model_name: 'medicine'} %>

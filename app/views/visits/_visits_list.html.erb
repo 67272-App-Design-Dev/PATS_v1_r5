@@ -1,0 +1,30 @@
+<h4>Visits at PATS</h4>
+
+<table class="striped highlight">
+  <thead>
+    <th>Date</th>
+    <th>Pet</th>
+    <th>Weight</th>
+    <th class="align_center">Options</th>
+  </thead>
+  <% for visit in @visits %>
+    <tr>
+      <td><%= link_to visit.date.strftime("%m/%d/%y"), visit_path(visit) %></td>
+      <td><%= link_to visit.pet.name, pet_path(visit.pet) %> (<%= visit.pet.animal.name %>)</td>
+      <td><%= visit.weight %> lbs</td>
+      <td class="align_center">
+      <%= link_to edit_visit_path(visit) do %>
+            <i class="material-icons">edit</i>
+        <% end %>
+        &nbsp;&nbsp;&nbsp;&nbsp; 
+        <%= link_to(visit_path(visit), method: :delete, data: { confirm: 'Are you sure you wish to delete this information?' }) do %>
+            <i class="material-icons">delete</i>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+<br />
+<%= will_paginate @visits, previous_label: "Previous&nbsp;", next_label: "&nbsp;Next" %>
+<p>&nbsp;</p>
+<%= render :partial => "partials/add_new_object", locals: {model_name: 'visit'} %>

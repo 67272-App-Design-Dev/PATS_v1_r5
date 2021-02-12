@@ -1,0 +1,25 @@
+<div class="card">
+  <div class="card-content">
+    <h5>Visit Data</h5><br />
+
+    <b>Date:&nbsp;&nbsp;</b>
+      <%= @visit.date.strftime("%B %d, %Y") %><br /><br />
+
+    <b>Pet:&nbsp;&nbsp;</b>
+      <%= link_to @pet.name, pet_path(@pet) %><br /><br />
+
+    <b>Animal:&nbsp;&nbsp;</b>
+      <%= @pet.animal.name %><br /><br />
+
+    <b>Owner:&nbsp;&nbsp;</b>
+      <%= link_to @owner.name, owner_path(@owner) %><br /><br />
+
+    <b>Weight:&nbsp;&nbsp;</b>
+      <%= @visit.weight %> lbs.<br /><br />
+
+    <b>Total Charge:&nbsp;&nbsp;</b>
+      <% @visit.total_charge ||= 0.00 %>
+      <%= number_to_currency(@visit.total_charge/100.0) %><br /><br />
+      
+  </div>
+</div>

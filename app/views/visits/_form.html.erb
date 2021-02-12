@@ -1,0 +1,15 @@
+<%= simple_form_for(@visit) do |f| %>
+  <%= f.error_notification %>
+  <div class="row">
+    <div class="form-inputs">
+      <%= f.input :pet_id, collection: get_pet_options, include_blank: true %>
+      <%= f.input :weight, label_html: { class: 'active' } %>
+      <%= f.input :date, label_html: { class: 'active' } %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-actions col s8">
+      <%= f.button :submit %>
+    </div>
+  </div>
+<% end %>

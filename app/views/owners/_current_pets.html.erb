@@ -1,0 +1,21 @@
+<div class="card">
+  <div class="card-content">
+    <span class="card-title"><%= @owner.first_name %>'s Pets</span>
+    <% if @current_pets.empty? %>
+      <p>No pets at this time</p>
+    <% else %>
+      <table class="striped highlight">
+        <thead>
+          <th>Name</th>
+          <th>Animal</th>
+        </thead>
+        <% for pet in @current_pets %>
+          <tr>
+            <td><%= link_to pet.name, pet_path(pet) %></td>
+            <td><%= pet.animal.name %></td>
+          </tr>
+        <% end %>
+      </table>
+    <% end %>
+  </div>
+</div>

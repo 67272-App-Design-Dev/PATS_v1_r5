@@ -1,0 +1,19 @@
+<%= simple_form_for(@medicine) do |f| %>
+  <%= f.error_notification %>
+  <div class="row">
+    <div class="form-inputs">
+      <%= f.input :name, label_html: { class: 'active' } %>
+      <%= f.input :description, label_html: { class: 'active' } %>
+      <%= f.input :admin_method, collection: ['oral','injection','intravenous','topical'], include_blank: true %>
+      <%= f.input :unit, label_html: { class: 'active' } %>
+      <%= f.input :stock_amount, label_html: { class: 'active' } %>
+      <%= f.input :vaccine, as: :radio_buttons %>
+      <%= f.input :active %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-actions col s8">
+      <%= f.button :submit %>
+    </div>
+  </div>
+<% end %>
