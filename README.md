@@ -10,7 +10,7 @@ This project does require the use of several gems to work properly. Check the Ge
 
 Setup
 --
-This version of the project requires only a sqlite3 database.  After cloning this repo, install all gems with the `bundle install` on the command line.  To set up the database and populate it with realistic sample records, run on the command line `rake db:populate`.  The populate script will remove any old databases, create new development and test databases, run all the migrations to set up the structure and add in the triggers, and then create 240 owners with over 450 pets and several thousand visits. (Every run will generate a different set of data and because of the large numbers and the callbacks used, it will take a few minutes.)
+This version of the project requires only a sqlite3 database.  After cloning this repo, install all gems with the `bundle install` on the command line.  To set up the database and populate it with realistic sample records, run on the command line `rake db:populate`.  The populate script will remove any old databases, create new development and test databases, run all the migrations to set up the structure, and then create 240 owners with over 450 pets and several thousand visits. (Every run will generate a different set of data and because of the large numbers and the callbacks used, it will take a few minutes.)
 
 To verify the model and controller tests are functioning, simply run `rails test` on the command line.  The SimpleCov gem will create a coverage directory with an index.html file in it; open this file in a web browser to see the coverage provided.
 
