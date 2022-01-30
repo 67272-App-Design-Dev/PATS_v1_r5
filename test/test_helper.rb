@@ -12,7 +12,7 @@ require 'contexts'
 
 class ActiveSupport::TestCase
   # Since we are not using fixtures, comment this line out...
-  # fixtures :all
+  #fixtures :all
 
   # Add more helper methods to be used by all tests here...
   include Contexts

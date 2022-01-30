@@ -9,6 +9,7 @@ class OwnersControllerTest < ActionDispatch::IntegrationTest
   test "should get index" do
     get owners_path
     assert_response :success
+    #assert_not_nil assigns(:active_owners)
   end
 
   test "should get new" do

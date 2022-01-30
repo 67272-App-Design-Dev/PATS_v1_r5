@@ -1,10 +1,10 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.6'
+ruby '2.6.9'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '5.2.4.4'
+gem 'rails', '5.2.6'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use Puma as the app server
@@ -49,6 +49,8 @@ gem 'validates_timeliness', '4.0.2'
 gem 'time_date_helpers', '0.0.4'
 gem 'carrierwave', '1.2.2'
 gem 'will_paginate'
+gem 'awesome_print'
+gem 'table_print'
 
 
 group :development, :test do
