@@ -9,6 +9,7 @@ gem 'rails', '5.2.6'
 gem 'sqlite3'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
+#gem "puma", ">= 4.3.9"
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -48,6 +49,7 @@ gem 'cancancan'
 gem 'validates_timeliness', '4.0.2'
 gem 'time_date_helpers', '0.0.4'
 gem 'carrierwave', '1.2.2'
+#gem "carrierwave", ">= 1.3.2"
 gem 'will_paginate'
 gem 'awesome_print'
 gem 'table_print'

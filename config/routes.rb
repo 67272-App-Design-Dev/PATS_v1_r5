@@ -20,15 +20,6 @@ Rails.application.routes.draw do
   resources :animals
   resources :pets
 
-  #GET /pets  > pets_path
-  #GET /pets/new > new_pet_path
-  #GET /PET/:id > pet_path(id)
-  #GET /pet/:id/edit > edit_pet_path(id)
-  #POST /pets
-  #PATCH /pets/:id
-  #DELETE 
-
-
   resources :visits
   resources :dosages
   resources :treatments
