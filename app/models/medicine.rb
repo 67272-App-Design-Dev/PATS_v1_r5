@@ -8,8 +8,11 @@ class Medicine < ApplicationRecord
   has_many :visits, :through => :dosages
 
   # Scopes
-  scope :alphabetical, -> { order('name') }
+  scope :alphabetical, -> { order(:name) }
+  # scope :alphabetical, -> { order('name') }
   scope :active,       -> { where(active: true) }
+  # scope :active,       -> { where('active = ?', true) }
+  # scope :active,       -> { where('active = true') }
   scope :depleted,     -> { where('stock_amount < ?', 100) }
   scope :vaccines,     -> { where(vaccine: true) }
   scope :nonvaccines,  -> { where(vaccine: false) }
