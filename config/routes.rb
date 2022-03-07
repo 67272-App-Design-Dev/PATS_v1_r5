@@ -5,9 +5,8 @@ Rails.application.routes.draw do
 
   get '/owners', to: 'owners#index', as: :owners 
 
-  #This will create a owners_path helper: is going to take me to the combination of Get+ /pets+
-  # the prefix is whatever comes before path.
-  # the path part is added automatically
+  # This will create a owners_path helper method: is going to take me to the combination of "Get and /owners""
+  # The prefix is whatever comes before path. The path part is added automatically
   # So owners_path gets me this route -->   get '/owners', to: 'owners#index' and would take me to the index page. 
   # Without the helpers, if we would like to specify a link to a certain page, we would need to specify the http verb, and the URI. 
   # While with the helpers, we could just say just use owners_path and it would take us to the owners index page. 
@@ -55,14 +54,12 @@ Rails.application.routes.draw do
 # So if I say new_medicine_cost_path, it would take me to that empty form to fill it and create a new medecine 
   get 'medicine_costs/new', to: 'medicine_costs#new', as: :new_medicine_cost
   get 'procedure_costs/new', to: 'procedure_costs#new', as: :new_procedure_cost
+
   post 'medicine_costs', to: 'medicine_costs#create', as: :medicine_costs
   post 'procedure_costs', to: 'procedure_costs#create', as: :procedure_costs
   
 
-  # Routes for searching
-  # get 'medicines/search', to: 'medicines#search', as: :medicine_search
-  # get 'owners/search', to: 'owners#search', as: :owner_search
-  # get 'pets/search', to: 'pets#search', as: :pet_search
+
 
 
   # Semi-static page routes
@@ -70,10 +67,18 @@ Rails.application.routes.draw do
   get 'home/about', to: 'home#about', as: :about
   get 'home/contact', to: 'home#contact', as: :contact
   get 'home/privacy', to: 'home#privacy', as: :privacy
-  get 'home/search', to: 'home#search', as: :search
-
   # You can have the root of your site routed with 'root'
   root 'home#index'
+
+
+
+  get 'home/search', to: 'home#search', as: :search
+  # Routes for searching
+  # get 'medicines/search', to: 'medicines#search', as: :medicine_search
+  # get 'owners/search', to: 'owners#search', as: :owner_search
+  # get 'pets/search', to: 'pets#search', as: :pet_search
+
+
 
   # Authentication routes
   resources :sessions

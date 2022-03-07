@@ -1,7 +1,8 @@
 class OwnersController < ApplicationController
   # A callback to set up an @owner object to work with 
   before_action :set_owner, only: [:show, :edit, :update, :destroy]
-  before_action :check_login
+
+  # before_action :check_login
 
   def index
     # finding all the active owners and paginating that list (will_paginate)
@@ -10,18 +11,24 @@ class OwnersController < ApplicationController
 
   def show
   #  Show the owner's details using his id
-    @owner = Owner.find(params[:id])
+    # @owner = Owner.find(params[:id])
      # get all the pets for this owner
     @current_pets = @owner.pets.alphabetical.active.to_a
+
+     # render template[:show]
+    # layout 'application'
+
   end
 
   def new
     @owner = Owner.new
+    # render template[:new]
+    # layout 'application'
   end
 
   def edit
     # get @owner
-    @owner = Owner.find(params[:id])
+    # @owner = Owner.find(params[:id])
     # render template[:edit]
     # layout 'application'
   end
@@ -39,6 +46,7 @@ class OwnersController < ApplicationController
   end
 
   def update
+     # @owner = Owner.find(params[:id])
     if @owner.update_attributes(owner_params)
       flash[:notice] = "Successfully updated #{@owner.proper_name}."
       redirect_to @owner
@@ -48,6 +56,8 @@ class OwnersController < ApplicationController
   end
 
   def destroy
+   # @owner = Owner.find(params[:id])
+
     @owner.destroy
     flash[:notice] = "Successfully removed #{@owner.proper_name} from the PATS system."
     redirect_to owners_url
