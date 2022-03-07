@@ -9,7 +9,9 @@ class OwnersController < ApplicationController
   end
 
   def show
-    # get all the pets for this owner
+  #  Show the owner's details using his id
+    @owner = Owner.find(params[:id])
+     # get all the pets for this owner
     @current_pets = @owner.pets.alphabetical.active.to_a
   end
 
@@ -19,6 +21,7 @@ class OwnersController < ApplicationController
 
   def edit
     # get @owner
+    @owner = Owner.find(params[:id])
     # render template[:edit]
     # layout 'application'
   end
