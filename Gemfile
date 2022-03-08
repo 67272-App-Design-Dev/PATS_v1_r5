@@ -45,7 +45,7 @@ gem 'simple_form'
 gem 'materialize-form', git: 'https://github.com/cmu-is-projects/materialize-form.git'
 gem 'jquery-rails', '4.3.1'
 gem 'jquery-ui-rails', '6.0.1'
-gem 'cancancan'
+gem 'cancancan' #A gem for handling authorization
 gem 'validates_timeliness', '4.0.2'
 gem 'time_date_helpers', '0.0.4'
 gem 'carrierwave', '1.2.2'
