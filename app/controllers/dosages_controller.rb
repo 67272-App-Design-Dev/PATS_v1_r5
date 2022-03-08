@@ -1,5 +1,6 @@
 class DosagesController < ApplicationController
   before_action :check_login
+  authorize_resource
   
   def new
     @dosage = Dosage.new

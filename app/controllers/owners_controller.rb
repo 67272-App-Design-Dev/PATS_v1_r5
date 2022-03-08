@@ -1,8 +1,8 @@
 class OwnersController < ApplicationController
   # A callback to set up an @owner object to work with 
   before_action :set_owner, only: [:show, :edit, :update, :destroy]
-
-  # before_action :check_login
+  before_action :check_login
+  authorize_resource
 
   def index
     # finding all the active owners and paginating that list (will_paginate)

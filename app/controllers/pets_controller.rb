@@ -3,6 +3,7 @@ class PetsController < ApplicationController
   # A callback to set up an @pet object to work with 
   before_action :set_pet, only: [:show, :edit, :update, :destroy]
   before_action :check_login
+  authorize_resource
 
   def index
     # get data on all pets and paginate the output to 10 per page

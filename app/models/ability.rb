@@ -15,28 +15,36 @@ class Ability
       
     elsif user.role? :assistant
       # can manage owners, pets, and visits
-      can :manage, Owner
-      can :manage, Pet
-      can :manage, Visit
+      # an assistant can do anything for owner, pets, and visits. 
+      # For instance, any action available in OwnersController, they can do it same for Pets and Visits.
+
+      can :manage, Owner # this user can perform all actions (:manage) on the Owner model
+      can :manage, Pet # this user can perform all actions on (:manage) the Pet model
+      can :manage, Visit # this user can perform all actions on (:manage) the Visit model
       
       # can create and destroy dosages and treatments
       can :manage, Dosage
       can :manage, Treatment
 
-      # can read (costs for) medicines and procedures
+      # can only read (costs for) medicines and procedures
+      # They cannot manipulate medicines and procedures: so they got read privileges but not write 
       can :read, Medicine#Cost
       can :read, Procedure#Cost
 
-      # they can read their own profile
+      # An assistant can read his own profile
+      # Basically, an assistant can show a particular user,
+      # but only if his ID matches the current user which means himself!
       can :show, User do |u|  
         u.id == user.id
       end
 
-      # they can update their own profile
+      # Difference between :read and :show -- :read includes show and index together.
+      # In this particular case, we are only giving show priviliges
+
+      # An assistant can update his own profile
       can :update, User do |u|  
         u.id == user.id
       end
-
 
     elsif user.role? :owner
       # they can read their own data

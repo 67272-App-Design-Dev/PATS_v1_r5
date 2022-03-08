@@ -2,6 +2,7 @@ class MedicinesController < ApplicationController
 
   before_action :set_medicine, only: [:show, :edit, :update, :destroy]
   before_action :check_login
+  authorize_resource
 
   def index
     # get all visits in reverse chronological order, 10 per page

@@ -1,5 +1,6 @@
 class TreatmentsController < ApplicationController
   before_action :check_login
+  authorize_resource
 
   def new
     @treatment = Treatment.new

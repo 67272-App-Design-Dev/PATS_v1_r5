@@ -1,5 +1,6 @@
 class MedicineCostsController < ApplicationController
   before_action :check_login
+  authorize_resource
   
   def new
     @medicine_cost = MedicineCost.new

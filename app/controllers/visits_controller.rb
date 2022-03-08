@@ -2,6 +2,7 @@ class VisitsController < ApplicationController
   # A callback to set up an @visit object to work with 
   before_action :set_visit, only: [:show, :edit, :update, :destroy]
   before_action :check_login
+  authorize_resource
 
   def index
     # get all visits in reverse chronological order, 10 per page
