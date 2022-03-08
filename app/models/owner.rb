@@ -1,14 +1,18 @@
 class Owner < ApplicationRecord
-  
+  attr_accessor :username, :password, :password_confirmation
+
   # create a callback that will strip non-digits before saving to db
   before_save :reformat_phone
+
+    # Delegates
+  delegate :username, to: :user, allow_nil: true
   
   # Relationships
   # -----------------------------
   has_many :pets # :dependent => :destroy  (:nullify option will break link, but leaves orphan records)
   has_many :visits, through: :pets
   # has_many :notes, as: :notable
-  
+  belongs_to :user
   
   # Scopes
   # -----------------------------

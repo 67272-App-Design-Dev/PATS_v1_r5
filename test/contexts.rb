@@ -11,6 +11,7 @@ require './test/sets/visits'
 require './test/sets/dosages'
 require './test/sets/treatments'
 require './test/sets/users'
+require './test/sets/abilities'
 
 module Contexts
   # explicitly include all sets of contexts used for testing 
@@ -26,7 +27,8 @@ module Contexts
   include Contexts::Dosages
   include Contexts::Treatments
   include Contexts::Users
-  
+  include Contexts::Abilities
+
   def create_all
     puts "Building context..."
     create_vet_users

@@ -15,12 +15,24 @@ module Contexts
 
     def create_assistant_users
       @egruberman = FactoryBot.create(:user)
-      @tgruberman = FactoryBot.create(:user, first_name: "Ted")
+      @tgruberman = FactoryBot.create(:user, first_name: "Ted", username: "ted")
     end
 
     def destroy_assistant_users
       @egruberman.delete
       @tgruberman.delete
+    end
+
+    def create_owner_users
+      @alex_user = FactoryBot.create(:user, first_name: "Alex", last_name: "Heimann", username: "alex", role: "owner")
+      @rachel_user = FactoryBot.create(:user, first_name: "Rachel", last_name: "Heimann", username: "rachel", role: "owner", active: false)
+      @mark_user = FactoryBot.create(:user, first_name: "Mark", last_name: "Heimann", username: "mark", role: "owner")      
+    end
+
+    def destroy_owner_users
+      @alex_user.delete 
+      @rachel_user.delete 
+      @mark_user.delete
     end
 
   end

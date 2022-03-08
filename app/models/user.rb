@@ -32,6 +32,7 @@ class User < ApplicationRecord
     
   # Relationships
   has_many :notes
+  has_one :owner
 
   # Validations
   # make sure required fields are present
@@ -41,7 +42,8 @@ class User < ApplicationRecord
   validates_presence_of :password_confirmation, :on => :create 
   validates_confirmation_of :password, message: "does not match"
   validates_length_of :password, :minimum => 4, message: "must be at least 4 characters long", :allow_blank => true
-  validates_inclusion_of :role, in: %w( vet assistant ), message: "is not recognized in the system"
+  validates_inclusion_of :role, in: %w( vet assistant owner), message: "is not recognized in the system"
+
   # validates_format_of :password, //
 
   # Other methods
@@ -62,7 +64,7 @@ class User < ApplicationRecord
       find_by_username(username).try(:authenticate, password)
   end
   # for use in authorizing with CanCan
-  ROLES = [['Vet', :vet],['Assistant', :assistant]]
+  ROLES = [['Vet', :vet],['Assistant', :assistant],['Owner', :owner]]
 
   # the role? method checks if the user has a role among the ones we define here. 
   def role?(authorized_role)

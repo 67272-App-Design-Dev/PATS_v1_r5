@@ -8,9 +8,9 @@ module Contexts
     end
     
     def destroy_pets
-      @dusty.destroy
-      @polo.destroy
-      @pork_chop.destroy
+      @dusty.delete
+      @polo.delete
+      @pork_chop.delete
     end
 
   end
