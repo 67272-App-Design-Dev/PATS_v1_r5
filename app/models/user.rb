@@ -64,6 +64,7 @@ class User < ApplicationRecord
   # for use in authorizing with CanCan
   ROLES = [['Vet', :vet],['Assistant', :assistant]]
 
+  # the role? method checks if the user has a role among the ones we define here. 
   def role?(authorized_role)
     return false if role.nil?
     role.downcase.to_sym == authorized_role
