@@ -1,0 +1,19 @@
+<%= simple_form_for(@user) do |f| %>
+  <%= f.error_notification %>
+  <div class="row">
+    <div class="form-inputs">
+      <%= f.input :first_name %>
+      <%= f.input :last_name, label_html: { class: 'active' } %>
+      <%= f.input :role, collection: User::ROLES %>
+      <%= f.input :username, label_html: { class: 'active' } %>
+      <%= f.input :password, label_html: { class: 'active' } %>
+      <%= f.input :password_confirmation, label_html: { class: 'active' } %>
+      <%= f.input :active %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-actions col s8">
+      <%= f.button :submit %>
+    </div>
+  </div>
+<% end %>

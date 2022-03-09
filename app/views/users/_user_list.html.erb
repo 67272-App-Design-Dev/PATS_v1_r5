@@ -1,0 +1,32 @@
+<h4>Users at PATS</h4>
+
+<table class="striped highlight">
+  <thead>
+    <th>Name</th>
+    <th>Username</th>
+    <th class="align_center">Role</th>
+    <th class="align_center">Active?</th>
+    <th class="align_center">Options</th>
+  </thead>
+  <% for user in @users %>
+    <tr class="<%= cycle('dg_list_line_odd', 'dg_list_line_even') %>">
+      <td><%= user.name %></td>
+      <td><%= user.username %></td>
+      <td class="align_center"><%= user.role %></td>
+      <td class="align_center"><%= user.active ? "Yes" : "No" %></td>
+      <td class="align_center">
+        <% if can? :edit, user %>
+          <%= link_to edit_user_path(user) do %>
+            <i class="material-icons">edit</i>
+          <% end %> 
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+<p class="supertiny"></p>
+<br />
+<%= will_paginate @users, previous_label: "Previous&nbsp;", next_label: "&nbsp;Next" %>
+<p class="supertiny"></p>
+<br />
+<%= render :partial => "partials/add_new_object", locals: {model_name: 'user'} %>

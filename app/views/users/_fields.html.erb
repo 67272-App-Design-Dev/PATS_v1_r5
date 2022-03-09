@@ -1,0 +1,10 @@
+<%= f.input :first_name, label_html: { class: 'active' } %>
+<%= f.input :last_name, label_html: { class: 'active' } %>
+<%= f.input :username, label_html: { class: 'active' } %>
+<%= f.input :password, label_html: { class: 'active' } %>
+<%= f.input :password_confirmation, label_html: { class: 'active' } %>
+<% if current_user.role?(:vet) %>
+  <%= f.input :role, collection: User::ROLES, include_blank: true %>
+<% end %>
+<%= f.input :active %>
+

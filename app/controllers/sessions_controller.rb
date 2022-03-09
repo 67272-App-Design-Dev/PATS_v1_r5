@@ -1,6 +1,10 @@
+#  Our session controller is just like the HomeController, 
+# it does not have a table in the database associated with it.
+# It is just a controller that helps us manage the stuff and keep track of the session. 
+
 class SessionsController < ApplicationController
   def new
-    # rendering the view with the login form
+    # rendering the view with the a blank login form
   end
   
   # logging in by adding the user_id in the session hash 

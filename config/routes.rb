@@ -81,10 +81,10 @@ Rails.application.routes.draw do
 
 
   # Authentication routes
-  resources :sessions
   resources :users
+  resources :sessions
   get 'users/new', to: 'users#new', as: :signup
-  get 'user/edit', to: 'users#edit', as: :edit_current_user
+  get 'users/:id/edit', to: 'users#edit', as: :edit_current_user
   get 'login', to: 'sessions#new', as: :login
   get 'logout', to: 'sessions#destroy', as: :logout
 

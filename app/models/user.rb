@@ -43,8 +43,8 @@ class User < ApplicationRecord
   validates_confirmation_of :password, message: "does not match"
   validates_length_of :password, :minimum => 4, message: "must be at least 4 characters long", :allow_blank => true
   validates_inclusion_of :role, in: %w( vet assistant owner), message: "is not recognized in the system"
-
-  # validates_format_of :password, //
+  # we can add validations as needed. For example, we can restrict the passwords to certain character combinations and lengths
+  # validates_format_of :password, // ...
 
   # Other methods
   # -----------------------------  
