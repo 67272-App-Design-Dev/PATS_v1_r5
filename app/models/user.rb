@@ -63,6 +63,13 @@ class User < ApplicationRecord
   def self.authenticate(username, password)
       find_by_username(username).try(:authenticate, password)
   end
+  
+  
+  
+  
+  
+  
+  
   # for use in authorizing with CanCan
   ROLES = [['Vet', :vet],['Assistant', :assistant],['Owner', :owner]]
 
